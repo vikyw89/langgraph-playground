@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["vikyw89 <vikyw89@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langgraph = "^0.0.32"
+langchain-openai = "^0.1.1"
+python-dotenv = "^1.0.1"
+langchain = "^0.1.14"
+tavily-python = "^0.3.3"
+grandalf = "^0.8"
+langsmith = "^0.1.40"
+numexpr = "^2.10.0"
+langchain-google-genai = "^1.0.3"
+pytest = "^8.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "scripts.start:run"
