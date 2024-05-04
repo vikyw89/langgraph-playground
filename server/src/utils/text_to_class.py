@@ -1,4 +1,4 @@
-from typing import TypeVar
+from typing import AsyncIterable, TypeVar
 from pydantic import BaseModel
 from src.configs.index import GOOGLE_API_KEY
 from langchain.output_parsers import PydanticOutputParser
@@ -41,6 +41,6 @@ async def arun(
 
     chain = prompt | model | parser
 
-    output = await chain.ainvoke({"query": f"Extract data from this text : {text}"})
+    output = await chain.ainvoke({"query": text})
 
     return output

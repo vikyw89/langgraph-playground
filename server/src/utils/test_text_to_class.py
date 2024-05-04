@@ -1,18 +1,32 @@
 from typing import Annotated
 
 from pydantic import BaseModel, Field
+from src.configs.index import OPENAI_API_KEY
 
 
 def test_arun():
     from src.utils.text_to_class import arun
     import asyncio
 
-    class Person(BaseModel):
-        name: str = Field(description="Person name")
-        age: int = Field(description="Person age")
-        
-    class Output(BaseModel):
-        persons: Annotated[list[Person], Field(description="Extracted names")]
+    class Task(BaseModel):
+        id: Annotated[str, Field(description="Task id", examples=["1"])]
+        title: Annotated[str, Field(description="Task title")]
+        input: Annotated[
+            list[str],
+            Field(description="list of input id / dependency id", examples=["1"]),
+        ]
+        expected_output: Annotated[
+            str, Field(description="Expected output of this task")
+        ]
 
-    res = asyncio.run(arun(text="irene 23years, irenelle 25years, irena 4 years", output_class=Output))
+    class Plan(BaseModel):
+        tasks: Annotated[list[Task], Field(description="list of tasks")]
+
+    res = asyncio.run(
+        arun(
+            text="Let's think step by step. Create a plan for a wedding",
+            output_class=Plan,
+        )
+    )
+
     print("res", res)
