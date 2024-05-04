@@ -21,7 +21,8 @@ async def main():
                 final_content = ""
                 async for chunk in value["output_stream"]:
                     chunk: BaseMessageChunk
-                    final_content += chunk.content
+                    print("chunk", chunk)
+                    # final_content += chunk.content
                     # do something with the stream
                 print("final_content", final_content)
 
