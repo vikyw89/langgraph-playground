@@ -1,4 +1,4 @@
-from typing import AsyncIterable, TypeVar
+from typing import TypeVar
 from pydantic import BaseModel
 from src.configs.index import GOOGLE_API_KEY
 from langchain.output_parsers import PydanticOutputParser

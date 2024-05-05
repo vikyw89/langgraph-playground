@@ -1,5 +1,4 @@
-from src.utils.types import Chunk
-
+from src.utils.chunks.types import Chunk
 
 async def arun(text:str) -> list[Chunk]:
     text_list = text.splitlines()

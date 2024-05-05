@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 
 async def arun(text:str)-> str:
-    from src.utils import text_to_class
+    from src.utils.text import text_to_class
 
     class Summary(BaseModel):
         summary: Annotated[str, Field(description="Summary")]

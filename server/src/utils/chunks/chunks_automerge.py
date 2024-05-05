@@ -1,4 +1,4 @@
-from src.utils.types import Chunk
+from src.utils.chunks.types import Chunk
 from langchain_text_splitters.sentence_transformers import SentenceTransformersTokenTextSplitter
 
 async def arun(chunks:list[Chunk], max_token=4000) -> list[Chunk]:

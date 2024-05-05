@@ -1,20 +1,20 @@
 import json
-from typing import Annotated, Literal
+from typing import Annotated
 from pydantic import BaseModel, Field
 from .state import AgentState
-from langchain_core.pydantic_v1 import BaseModel
-from src.utils import text_to_class
+from src.utils.text import text_to_class
 
 
 async def arun(state: AgentState):
     class Task(BaseModel):
-        id: Annotated[str, Field(description="Task id", examples=["1"])]
+        id: Annotated[int, Field(description="Task id", examples=[1])]
         title: Annotated[str, Field(description="Task title")]
         input: Annotated[
-            list[str],
-            Field(description="list of input id / dependency id", examples=["1"]),
+            list[int],
+            Field(description="list of input id / dependency id", examples=[[1]]),
         ]
-        assigned_to: Annotated[Literal["code_writter", "code_executor","researcher", "email_writter"],Field(description="Assign to which professionals ?")]
+        needed_skills: Annotated[list[str],Field(description="Assign to which professionals ?")]
+        estimated_hours: Annotated[int, Field(description="Estimated hours to finish the task")]
         output: Annotated[str, Field(description="Expected output of this task")]
 
     class Plan(BaseModel):
@@ -28,7 +28,7 @@ async def arun(state: AgentState):
     print("output", output)
     parsed_output = []
     for task in output.tasks:
-        parsed_output.append(task.dict())
+        parsed_output.append(task.model_dump())
 
     state["output"] = json.dumps(parsed_output)
     state["output_stream"] = None

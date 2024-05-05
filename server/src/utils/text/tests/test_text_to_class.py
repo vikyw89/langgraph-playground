@@ -1,11 +1,11 @@
 from typing import Annotated
 
 from pydantic import BaseModel, Field
-from src.configs.index import OPENAI_API_KEY
+from src.utils.text import text_to_class
+import pytest
 
-
+@pytest.mark.asyncio
 async def test_arun():
-    from src.utils.text_to_class import arun
 
     class Task(BaseModel):
         id: Annotated[int, Field(description="Task id", examples=[1])]
@@ -21,9 +21,7 @@ async def test_arun():
     class Plan(BaseModel):
         tasks: Annotated[list[Task], Field(description="list of tasks")]
 
-    res = arun(
+    res = text_to_class.arun(
             text="Let's think step by step. Create a plan for a wedding",
             output_class=Plan,
         )
-
-    print("res", res)
