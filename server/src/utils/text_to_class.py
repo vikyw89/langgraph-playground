@@ -42,6 +42,6 @@ async def arun(
 
     chain = prompt | model | parser
 
-    output = await chain.ainvoke({"query": text})
+    output : output_class = await chain.ainvoke({"query": text})
 
     return output

@@ -1,9 +1,6 @@
-from typing import Annotated
-from pydantic import BaseModel, Field
-from uuid import uuid4
+from src.utils.types import Chunk
 
 
-    
 async def arun(text:str) -> list[Chunk]:
     text_list = text.splitlines()
     count = 0

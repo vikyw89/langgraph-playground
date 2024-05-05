@@ -18,6 +18,8 @@ numexpr = "^2.10.0"
 langchain-google-genai = "^1.0.3"
 pytest = "^8.2.0"
 pytest-asyncio = "^0.23.6"
+sentence-transformers = "^2.7.0"
+litellm = "^1.35.38"
 
 
 [build-system]
