@@ -1,6 +1,6 @@
+from src.utils.chunks import chunks_add_embeddings
+from src.utils.chunks.types import Chunk
 async def test_arun():
-    from src.utils.chunks import chunks_add_embeddings
-    from src.utils.chunks.types import Chunk
 
     chunks = [Chunk(text="hellooooo", start_line=1, end_line=1)]
 
