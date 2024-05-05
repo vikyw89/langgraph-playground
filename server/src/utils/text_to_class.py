@@ -8,6 +8,7 @@ from langchain_google_genai.chat_models import ChatGoogleGenerativeAI
 T = TypeVar("T", bound=BaseModel)
 
 
+
 async def arun(
     text: str,
     output_class: T,

@@ -1,3 +1,4 @@
+from typing import Annotated
 from pydantic import BaseModel, Field
 from .state import AgentState
 
@@ -7,11 +8,11 @@ async def arun(state: AgentState):
     from src.utils import text_to_class
 
     class Review(BaseModel):
-        plan_accuracy: int = Field(description="The accuracy of the plan", ge=0, le=5)
-        dependency_accuracy: int = Field(
+        plan_accuracy: Annotated[int,  Field(description="The accuracy of the plan", ge=0, le=5)]
+        dependency_accuracy: Annotated[int, Field(
             description="The accuracy of the dependency", ge=0, le=5
-        )
-        review: str = Field(description="The review of the plan")
+        )]
+        review:Annotated[str, Field(description="Suggest are of improvement based on above score")]
 
     output = await text_to_class.arun(
         text=f"""Given the input: {state["input"]}, evaluate and review this output plan: {state["output"]}""",

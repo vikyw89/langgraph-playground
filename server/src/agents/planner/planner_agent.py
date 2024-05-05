@@ -1,5 +1,5 @@
 import json
-from typing import Annotated
+from typing import Annotated, Literal
 from pydantic import BaseModel, Field
 from .state import AgentState
 from langchain_core.pydantic_v1 import BaseModel
@@ -14,6 +14,7 @@ async def arun(state: AgentState):
             list[str],
             Field(description="list of input id / dependency id", examples=["1"]),
         ]
+        assigned_to: Annotated[Literal["code_writter", "code_executor","researcher", "email_writter"],Field(description="Assign to which professionals ?")]
         output: Annotated[str, Field(description="Expected output of this task")]
 
     class Plan(BaseModel):

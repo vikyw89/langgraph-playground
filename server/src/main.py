@@ -9,7 +9,7 @@ load_dotenv()
 async def main():
     from src.agents.planner.index import runnable
 
-    stream = await runnable.ainvoke(input=AgentState(input="go to moon"), debug=True)
+    stream = await runnable.ainvoke(input=AgentState(input="write a wiki article about Tesla"), debug=True)
 
     # async for node in stream:
     #     for key, value in node.items():
