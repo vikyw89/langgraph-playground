@@ -1,7 +1,8 @@
+import pytest
 from src.utils.chunks import chunks_automerge
 from src.utils.text import text_to_chunks
 
-
+@pytest.mark.asyncio
 async def test_arun():
 
     text = """from litellm import embedding

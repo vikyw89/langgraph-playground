@@ -20,6 +20,7 @@ pytest = "^8.2.0"
 pytest-asyncio = "^0.23.6"
 sentence-transformers = "^2.7.0"
 litellm = "^1.35.38"
+nest-asyncio = "^1.6.0"
 
 
 [build-system]
@@ -28,3 +29,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 start = "scripts.start:run"
+test = "scripts.test:run"
