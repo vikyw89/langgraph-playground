@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from src.utils.text import text_to_class
 import pytest
 
-@pytest.mark.asyncio
+
 async def test_arun():
 
     class Task(BaseModel):
@@ -21,7 +21,9 @@ async def test_arun():
     class Plan(BaseModel):
         tasks: Annotated[list[Task], Field(description="list of tasks")]
 
-    res = text_to_class.arun(
+    res = await text_to_class.arun(
             text="Let's think step by step. Create a plan for a wedding",
             output_class=Plan,
         )
+    
+    print("res",res)

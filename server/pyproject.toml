@@ -30,3 +30,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 start = "scripts.start:run"
 test = "scripts.test:run"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

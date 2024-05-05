@@ -1,7 +1,7 @@
 from src.utils.text import text_to_summary
 import pytest
 
-@pytest.mark.asyncio
+
 async def test_arun():
 
     output = await text_to_summary.arun(text="""How to move a line of code up or down on a Mac?
