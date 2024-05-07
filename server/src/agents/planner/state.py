@@ -1,10 +1,9 @@
 from typing import AsyncIterable, TypedDict
-from langchain_core.messages import BaseMessageChunk
+from langchain_core.messages import BaseMessageChunk, BaseMessage
 
 
 class AgentState(TypedDict):
-    input: str | bytes
-    output_stream: AsyncIterable[BaseMessageChunk] | None = None
+    input: str
+    id: str
     output: str | None = None
-    final_output: str | None = None
-    
+    is_final: bool = False

@@ -1,9 +1,14 @@
+import asyncio
 import json
+import pytest
 
 
-async def test_arun():
+def test_arun():
     from src.utils.terminal import terminal_write
 
-    res = await terminal_write.arun(text=f"""poetry env infos""")
+    async def run():
+        res = await terminal_write.arun(text=f"""poetry env infos""")
 
-    print("res", res)
+        print("res", res)
+
+    asyncio.run(run())

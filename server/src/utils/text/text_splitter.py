@@ -1,7 +1,7 @@
 
 from src.utils.chunks import chunks_automerge
 from src.utils.chunks.types import Chunk
-from src.utils.text import text_to_chunks
+from src.utils.llm_text import text_to_chunks
 
 
 async def arun(text: str, max_token=4000) -> list[Chunk]:

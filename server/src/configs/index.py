@@ -6,3 +6,4 @@ load_dotenv()
 
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
 GOOGLE_API_KEY= os.environ["GOOGLE_API_KEY"]
+REDIS_URL= os.environ["REDIS_URL"]
